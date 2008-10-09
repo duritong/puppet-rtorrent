@@ -7,6 +7,10 @@ class rtorrent {
     case $operatingsystem {
         default: { include rtorrent::base }
     } 
+
+    if $use_munin {
+        include rtorrent::munin
+    }
 }
 
 class rtorrent::base {
