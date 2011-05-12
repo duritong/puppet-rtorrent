@@ -4,17 +4,11 @@
 #
 
 class rtorrent {
-    case $operatingsystem {
-        default: { include rtorrent::base }
-    } 
+  case $operatingsystem {
+    default: { include rtorrent::base }
+  } 
 
-    if $use_munin {
-        include rtorrent::munin
-    }
-}
-
-class rtorrent::base {
-    package { 'rtorrent':
-        ensure => present,
-    }    
+  if $use_munin {
+    include rtorrent::munin
+  }
 }
