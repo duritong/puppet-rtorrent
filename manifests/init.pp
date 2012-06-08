@@ -4,17 +4,11 @@
 #
 
 class rtorrent {
-    case $operatingsystem {
+    case $::operatingsystem {
         default: { include rtorrent::base }
-    } 
+    }
 
-    if $use_munin {
+    if hiera('use_munin',false) {
         include rtorrent::munin
     }
-}
-
-class rtorrent::base {
-    package { 'rtorrent':
-        ensure => present,
-    }    
 }
