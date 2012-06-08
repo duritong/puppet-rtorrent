@@ -6,24 +6,23 @@
 # but the plugins should be configured by user
 
 class rtorrent::munin {
-
-     $rtorrent_munin_config = "user \$the_running_user\nenv.src socket\n env.socket /path/to/the/socket"
-     munin::plugin::deploy { 
-        'rtom_mem':
-            ensure => absent,
-            config => $rtorrent_munin_config,
-            source => 'rtorrent/munin/rtom_mem';
-        'rtom_peers':
-            ensure => absent,
-            config => $rtorrent_munin_config,
-            source => 'rtorrent/munin/rtom_peers';
-        'rtom_spdd':
-            ensure => absent,
-            config => $rtorrent_munin_config,
-            source => 'rtorrent/munin/rtom_spdd';
-        'rtom_vol':
-            ensure => absent,
-            config => $rtorrent_munin_config,
-            source => 'rtorrent/munin/rtom_vol';
-    }
+  $rtorrent_munin_config = "user \$the_running_user\nenv.src socket\n env.socket /path/to/the/socket"
+  munin::plugin::deploy { 
+    'rtom_mem':
+      ensure => absent,
+      config => $rtorrent_munin_config,
+      source => 'rtorrent/munin/rtom_mem';
+    'rtom_peers':
+      ensure => absent,
+      config => $rtorrent_munin_config,
+      source => 'rtorrent/munin/rtom_peers';
+    'rtom_spdd':
+      ensure => absent,
+      config => $rtorrent_munin_config,
+      source => 'rtorrent/munin/rtom_spdd';
+    'rtom_vol':
+      ensure => absent,
+      config => $rtorrent_munin_config,
+      source => 'rtorrent/munin/rtom_vol';
+  }
 }

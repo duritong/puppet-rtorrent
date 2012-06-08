@@ -1,5 +1,5 @@
 class rtorrent::base {
-    package { 'rtorrent':
-        ensure => present,
-    }
+  package { 'rtorrent':
+    ensure => present,
+  }    
 }
