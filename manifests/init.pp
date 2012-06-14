@@ -3,12 +3,14 @@
 # GPLv3
 #
 
-class rtorrent {
+class rtorrent ( 
+  $manage_munin = false
+) {
   case $::operatingsystem {
     default: { include rtorrent::base }
   }
 
-  if hiera('use_munin',false) {
+  if $rtorrent::manage_munin {
     include rtorrent::munin
   }
 }
